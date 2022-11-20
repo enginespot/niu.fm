@@ -23,9 +23,9 @@ theme = 'maverick'
     url = "/about/"
     weight = "-110"
   [[menu.main]]
-    identifier = "thinking"
+    identifier = "thoughts"
     name = "随想"
-    url = "/posts/"
+    url = "/thoughts/"
     weight = -200
   [[menu.main]]
     identifier = "study"
