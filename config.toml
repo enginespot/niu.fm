@@ -16,16 +16,6 @@ theme = 'maverick'
     name = "关于"
     url = "/about/"
     weight = "-110"
-  [[menu.main]]
-    identifier = "thoughts"
-    name = "随想"
-    url = "/thoughts/"
-    weight = -200
-  [[menu.main]]
-    identifier = "learning"
-    name = "学习"
-    url = "/learning/"
-    weight = -200
 
 [markup]
   [markup.goldmark.renderer]
