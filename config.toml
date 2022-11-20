@@ -22,9 +22,9 @@ theme = 'maverick'
     url = "/thoughts/"
     weight = -200
   [[menu.main]]
-    identifier = "study"
+    identifier = "learning"
     name = "学习"
-    url = "/study/"
+    url = "/learning/"
     weight = -200
 
 [markup]
