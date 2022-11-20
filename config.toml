@@ -14,7 +14,7 @@ theme = 'maverick'
   [[menu.main]]
     identifier = "关于"
     name = "关于"
-    url = "/about/"
+    url = "/关于我/"
     weight = "-110"
 
 [markup]
