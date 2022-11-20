@@ -1,5 +1,5 @@
 ---
-title: 关于喔
+title: about
 ---
 
 ### 小牛快跑
