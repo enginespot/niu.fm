@@ -9,13 +9,7 @@ theme = 'maverick'
 
 [params]
   logo = '/assets/favicon.ico'
-  description = "架构，生活"
-
-#   [params.comments]
-#     githubRepo = 'canhtran/maverick'
-#     theme = 'github-light'
-
-
+  description = "生活，架构，猫"
 [menu]
   [[menu.main]]
     identifier = "关于"
