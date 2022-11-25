@@ -16,6 +16,11 @@ theme = 'maverick'
     name = "关于"
     url = "/关于我/"
     weight = "-110"
+  [[menu.main]]
+    identifier = "posts"
+    name = "随想"
+    url = "/posts/"
+    weight = -200
 
 [markup]
   [markup.goldmark.renderer]
