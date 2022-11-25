@@ -9,7 +9,8 @@ tags = [
 +++
 
 ### 待介绍
-```rust {linenos=table}
+
+```rust
 use std::{sync::{Arc, Condvar, Mutex},
           time::Instant};
 
