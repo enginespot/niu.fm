@@ -8,7 +8,7 @@ tags = [
 ]
 +++
 
-'''
+{{</*
 use std::{sync::{Arc, Condvar, Mutex},
           time::Instant};
 
@@ -88,4 +88,4 @@ fn main() {
 
     hdl.join().unwrap();
 }
-'''
+ */>}}
