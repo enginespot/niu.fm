@@ -1,6 +1,6 @@
 +++
 author = "小牛快跑"
-title = "多线程消息传递示例"
+title = "两个线程消息传递示例"
 date = "2022-11-25"
 description = "演示"
 tags = [
@@ -8,7 +8,7 @@ tags = [
 ]
 +++
 
-### 待介绍
+### 实现两个线程之间消息通信
 
 ```rust
 use std::{sync::{Arc, Condvar, Mutex},
