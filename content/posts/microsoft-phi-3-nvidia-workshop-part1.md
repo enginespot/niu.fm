@@ -85,7 +85,7 @@ CMD ["conda", "run", "-n", "ai_endpoint", "jupyter", "lab", "--ip=0.0.0.0", "--n
 
 ### 项目成果与展示
 
-![效果图](./image.png "Day 3 最终演示")
+![效果图](https://niu.fm/posts/image.png "Day 3 最终演示")
 
 ### 问题与解决方案
 #### 问题分析
