@@ -78,9 +78,12 @@ EXPOSE 8888
 # 运行 Jupyter Notebook
 CMD ["conda", "run", "-n", "ai_endpoint", "jupyter", "lab", "--ip=0.0.0.0", "--no-browser", "--allow-root", "--NotebookApp.token=''", "--notebook-dir=/app"]
 ```
-代码实现： 列出关键代码的实现步骤，可附上关键代码截图或代码块。
-测试与调优： 描述测试过程，包括测试用例的设计、执行及性能调优。
-集成与部署： 应用可以
+- 测试与调优： 现阶段只是把一些Warning去掉，后续还会在理解代码逻辑的基础上做进一步优化。
+- 集成与部署： 
+    1. 涉及到隐私的变量全部丢到环境变量文件中处理
+    2. 所有需要用到的软件全部放到Dockerfile中实现
+    3. 学习使用了Docker Compose + Dockerfile结合的方式，未来可以无缝集成到K8S等框架中
+
 
 
 ### 项目成果与展示
@@ -93,8 +96,8 @@ CMD ["conda", "run", "-n", "ai_endpoint", "jupyter", "lab", "--ip=0.0.0.0", "--n
     - Day2老师提供的在vscode中使用jupyter的方式和Day1以及Day3提供的通过web方式使用有些不是很一致，并且当开发环境切换的时候，不方便0成本切换，最好的方式是都部署到docker环境中，0成本切换，因为时间关系，暂时还没有集成netcore 开发环境到docker中
 
 ### 项目总结与展望
-项目评估： 整个训练营学习初步能够了解到Microsoft以及Nvidia在AI方向成果，以及技术方向，很有帮助
-未来方向： 暂无
+- 项目评估： 整个训练营学习初步能够了解到Microsoft以及Nvidia在AI方向成果，以及技术方向，很有帮助
+- 未来方向： 暂无
 
 备注：作为重度拖延症的我，也尝试在最后一天加入学习，此文作为训练营学习的Part 1 （并且此文还会再做改动），后续还会做Part 2
 
