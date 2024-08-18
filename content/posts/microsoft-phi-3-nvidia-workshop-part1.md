@@ -37,7 +37,9 @@ FROM continuumio/miniconda3
 RUN sed -i 's#deb.debian.org/debian$#mirrors.nju.edu.cn/debian#' /etc/apt/sources.list.d/debian.sources && \
     sed -i 's#deb.debian.org/debian-security$#mirrors.nju.edu.cn/debian-security#' /etc/apt/sources.list.d/debian.sources
 RUN apt-get update && \
-    apt-get install -y wget curl && \
+    apt-get install -y wget \
+    curl \
+    ffmpeg && \
     rm -rf /var/lib/apt/lists/*
 
 # 设置工作目录
@@ -54,17 +56,20 @@ RUN conda install --yes -n ai_endpoint -c conda-forge \
         numpy \
         faiss-cpu=1.7.2 \
         openai \
-        langchain-community
-
-RUN conda install --yes -n ai_endpoint -c conda-forge black \
+        langchain-community \
+        gradio \
+        ffmpeg \
+        transformers \
+        dotnet \
+        black \
         yapf \
         isort \
         autopep8
 RUN conda run -n ai_endpoint pip install \
-        langchain-nvidia-ai-endpoints
+        langchain-nvidia-ai-endpoints \
+        edge-tts 
 
-#dotnet-sdk
-RUN conda install --yes -n ai_endpoint -c conda-forge dotnet 
+RUN conda run -n ai_endpoint pip install openai-whisper==20231117
 
 # RUN curl -sSL https://dot.net/v1/dotnet-install.sh | bash
 
@@ -73,23 +78,25 @@ EXPOSE 8888
 # 运行 Jupyter Notebook
 CMD ["conda", "run", "-n", "ai_endpoint", "jupyter", "lab", "--ip=0.0.0.0", "--no-browser", "--allow-root", "--NotebookApp.token=''", "--notebook-dir=/app"]
 ```
-代码实现（必写）： 列出关键代码的实现步骤，可附上关键代码截图或代码块。
+代码实现： 列出关键代码的实现步骤，可附上关键代码截图或代码块。
 测试与调优： 描述测试过程，包括测试用例的设计、执行及性能调优。
-集成与部署： 说明各模块集成方法及最终部署到实际运行环境的步骤。
+集成与部署： 应用可以
 
 
 ### 项目成果与展示
-应用场景展示(必写)： 描述对话机器人的具体应用场景，如客户服务、教育辅导等。
-功能演示（必写）： 列出并展示实现的主要功能，附上UI页面截图，直观展示项目成果。
+应用场景展示： 描述对话机器人的具体应用场景，如客户服务、教育辅导等。
+功能演示： 列出并展示实现的主要功能，附上UI页面截图，直观展示项目成果。
 
 ### 问题与解决方案
-问题分析： 详细描述在项目实施过程中遇到的主要问题。
-解决措施： 阐述针对每个问题采取的具体解决措施及心路历程，体现问题解决能力。
-
+#### 问题分析
+    - openai-whisper==20231117 这个包不知为何无论如何不好通过Docker构建，暂时只能手动安装，后续解决
+    - Day2老师提供的在vscode中使用jupyter的方式和Day1以及Day3提供的通过web方式使用有些不是很一致，并且当开发环境切换的时候，不方便0成本切换，最好的方式是都部署到docker环境中，0成本切换，因为时间关系，暂时还没有集成netcore 开发环境到docker中
 
 ### 项目总结与展望
-项目评估： 对项目的整体表现进行客观评估，总结成功点和存在的不足。
-未来方向： 基于项目经验，提出未来可能的改进方向和发展规划。
+项目评估： 整个训练营学习初步能够了解到Microsoft以及Nvidia在AI方向成果，以及技术方向，很有帮助
+未来方向： 暂无
+
+备注：作为重度拖延症的我，也尝试在最后一天加入学习，此文作为训练营学习的Part 1 （并且此文还会再做改动），后续还会做Part 2
 
 
 ### 附件与参考资料
