@@ -5,16 +5,18 @@ date = "2024-8-18"
 description = "演示"
 tags = [
     "LLM",
-    "AI"
+    "AI",
+    "Nvidia",
+    "Microsoft"
 ]
 
 +++
 
 ### NVIDIA AI-AGENT夏季训练营 - Part 1
 
-项目名称：AI-AGENT夏季训练营 — RAG智能对话机器人
-报告日期：2024年8月18日
-项目负责人：小牛快跑
+- 项目名称：AI-AGENT夏季训练营 — RAG智能对话机器人
+- 报告日期：2024年8月18日
+- 项目负责人：小牛快跑
 
 ### 项目概述
 
@@ -27,7 +29,50 @@ tags = [
 
 功能整合（进阶版RAG必填）：  介绍进阶的语音功能、Agent功能、多模态等功能的整合策略与实现方法。
 实施步骤：
-环境搭建（必写）： 描述开发环境的搭建过程，包括必要的软件、库的安装与配置。
+#### 环境搭建： 
+```Dockerfile
+FROM continuumio/miniconda3
+
+# 清空原有的源地址，并添加南京大学镜像源
+RUN sed -i 's#deb.debian.org/debian$#mirrors.nju.edu.cn/debian#' /etc/apt/sources.list.d/debian.sources && \
+    sed -i 's#deb.debian.org/debian-security$#mirrors.nju.edu.cn/debian-security#' /etc/apt/sources.list.d/debian.sources
+RUN apt-get update && \
+    apt-get install -y wget curl && \
+    rm -rf /var/lib/apt/lists/*
+
+# 设置工作目录
+WORKDIR /app
+
+# 创建 Conda 环境并安装所有必要的包
+RUN conda create --name ai_endpoint python=3.8 -y
+RUN conda install --yes -n ai_endpoint -c conda-forge \
+        jupyterlab \
+        jupyterlab_code_formatter \
+        langchain-core \
+        langchain \
+        matplotlib \
+        numpy \
+        faiss-cpu=1.7.2 \
+        openai \
+        langchain-community
+
+RUN conda install --yes -n ai_endpoint -c conda-forge black \
+        yapf \
+        isort \
+        autopep8
+RUN conda run -n ai_endpoint pip install \
+        langchain-nvidia-ai-endpoints
+
+#dotnet-sdk
+RUN conda install --yes -n ai_endpoint -c conda-forge dotnet 
+
+# RUN curl -sSL https://dot.net/v1/dotnet-install.sh | bash
+
+EXPOSE 8888
+
+# 运行 Jupyter Notebook
+CMD ["conda", "run", "-n", "ai_endpoint", "jupyter", "lab", "--ip=0.0.0.0", "--no-browser", "--allow-root", "--NotebookApp.token=''", "--notebook-dir=/app"]
+```
 代码实现（必写）： 列出关键代码的实现步骤，可附上关键代码截图或代码块。
 测试与调优： 描述测试过程，包括测试用例的设计、执行及性能调优。
 集成与部署： 说明各模块集成方法及最终部署到实际运行环境的步骤。
