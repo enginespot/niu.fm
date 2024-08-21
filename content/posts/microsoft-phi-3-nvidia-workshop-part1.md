@@ -113,7 +113,7 @@ CMD ["conda", "run", "-n", "ai_endpoint", "jupyter", "lab", "--ip=0.0.0.0", "--n
 
 ![效果图](https://niu.fm/posts/image.png "Day 3 最终演示")
 
-![Dockerfile](https://niu.fm/posts/Dockerfile)
+[Dockerfile](https://niu.fm/posts/Dockerfile)
 
 ### 问题与解决方案
 #### 问题分析
