@@ -1,36 +1,3 @@
-+++
-author = "小牛快跑"
-title = "Microsoft & Nvidia AI Agent 训练营学习 - Part 1"
-date = "2024-8-18"
-description = "演示"
-tags = [
-    "LLM",
-    "AI",
-    "Nvidia",
-    "Microsoft"
-]
-
-+++
-
-### NVIDIA AI-AGENT夏季训练营 - Part 1
-
-- 项目名称：AI-AGENT夏季训练营 — RAG智能对话机器人
-- 报告日期：2024年8月18日
-- 项目负责人：小牛快跑
-
-### 项目概述
-
-我作为一个新手，带着学习的态度参加训练营，希望能够对平时的工作有帮助
-
-### 技术方案与实施步骤
-模型选择： 采用教程默认的模型。
-
-数据的构建： 采用教程默认的数据。
-
-功能整合（进阶版RAG必填）：  介绍进阶的语音功能、Agent功能、多模态等功能的整合策略与实现方法。
-实施步骤：
-#### 环境搭建： 
-```Dockerfile
 FROM continuumio/miniconda3
 
 # 清空原有的源地址，并添加南京大学镜像源
@@ -99,31 +66,3 @@ EXPOSE 8888
 
 # 运行 Jupyter Notebook
 CMD ["conda", "run", "-n", "ai_endpoint", "jupyter", "lab", "--ip=0.0.0.0", "--no-browser", "--allow-root", "--NotebookApp.token=''", "--notebook-dir=/app"]
-
-```
-- 测试与调优： 现阶段只是把一些Warning去掉，后续还会在理解代码逻辑的基础上做进一步优化。
-- 集成与部署： 
-    1. 涉及到隐私的变量全部丢到环境变量文件中处理
-    2. 所有需要用到的软件全部放到Dockerfile中实现
-    3. 学习使用了Docker Compose + Dockerfile结合的方式，未来可以无缝集成到K8S等框架中
-
-
-
-### 项目成果与展示
-
-![效果图](https://niu.fm/posts/image.png "Day 3 最终演示")
-
-![Dockerfile](https://niu.fm/posts/Dockerfile "Dockerfile 下载")
-
-### 问题与解决方案
-#### 问题分析
-    - openai-whisper软件包非常打，构建Docker镜像需要耐心等待
-
-### 项目总结与展望
-- 项目评估： 整个训练营学习初步能够了解到Microsoft以及Nvidia在AI方向成果，以及技术方向，很有帮助
-- 未来方向： 暂无
-
-备注：作为重度拖延症的我，也尝试在最后一天加入学习，此文作为训练营学习的Part 1 （并且此文还会再做改动），后续还会做Part 2
-
-
-### 附件与参考资料
