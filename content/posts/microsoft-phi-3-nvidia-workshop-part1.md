@@ -115,8 +115,7 @@ CMD ["conda", "run", "-n", "ai_endpoint", "jupyter", "lab", "--ip=0.0.0.0", "--n
 
 ### 问题与解决方案
 #### 问题分析
-    - openai-whisper==20231117 这个包不知为何无论如何不好通过Docker构建，暂时只能手动安装，后续解决
-    - Day2老师提供的在vscode中使用jupyter的方式和Day1以及Day3提供的通过web方式使用有些不是很一致，并且当开发环境切换的时候，不方便0成本切换，最好的方式是都部署到docker环境中，0成本切换，因为时间关系，暂时还没有集成netcore 开发环境到docker中
+    - openai-whisper软件包非常打，构建Docker镜像需要耐心等待
 
 ### 项目总结与展望
 - 项目评估： 整个训练营学习初步能够了解到Microsoft以及Nvidia在AI方向成果，以及技术方向，很有帮助
